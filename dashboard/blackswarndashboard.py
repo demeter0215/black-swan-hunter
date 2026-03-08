@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 DASHBOARD_DIR = Path(__file__).resolve().parent
-MICROSERVICE_SKILL_DIR = Path(r"Z:\AppShareCenter\iamxiaoe.lzcapp.openclaw.clone3\openclaw-workspace\skills\black-swan-hunter")
+MICROSERVICE_SKILL_DIR = Path(r"你的输出文档路径")
 DATA_FILE = MICROSERVICE_SKILL_DIR / "live_data.json"
 STAGED_DATA_FILE = MICROSERVICE_SKILL_DIR / "live_data.json.new"
 SYNC_READY_FILE = MICROSERVICE_SKILL_DIR / "sync.ready"
@@ -504,4 +504,5 @@ with col_right:
 if not st_autorefresh:
     import time
     time.sleep(REFRESH_SECONDS)
+
     st.rerun()
