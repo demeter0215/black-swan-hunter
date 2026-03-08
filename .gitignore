@@ -1,0 +1,23 @@
+# Black Swan Hunter - Git Ignore Rules
+
+# 1. 物理脱敏：严禁上传实时数据与凭证
+live_data.json
+live_data.json.new
+live_data.json.tmp
+sync.ready
+scanner_state.json
+auto_trade_state.json
+.env
+
+# 2. Python 缓存与日志
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+engine.log
+
+# 3. 本地开发环境与挂载残留
+dashboard/local_cache.json
+dashboard/debug_live_data.json
+dashboard/debug_live_data.json.bak
+.DS_Store
