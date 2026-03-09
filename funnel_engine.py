@@ -163,7 +163,7 @@ def run_atomic_cycle():
             try:
                 resp = requests.post(
                     "http://127.0.0.1:18789/v1/chat/completions",
-                    headers={"Authorization": "Bearer admin", "Content-Type": "application/json"},
+                    headers={"Authorization": "Bearer YOUR_GATEWAY_TOKEN", "Content-Type": "application/json"},
                     json={
                         "model": "minimax-cn/MiniMax-M2.5", # 使用你的默认高速模型
                         "messages": [{"role": "user", "content": prompt}],
@@ -214,7 +214,7 @@ def run_atomic_cycle():
                 )
                 # 钉钉推送 (使用正确的 session ID)
                 try:
-                    subprocess.run(["openclaw", "message", "send", "--channel", "dingtalk-connector", "--target", "0333692524571551386536", "--message", alert_msg], capture_output=True)
+                    subprocess.run(["openclaw", "message", "send", "--channel", "dingtalk-connector", "--target", "YOUR_DINGTALK_SESSION_ID", "--message", alert_msg], capture_output=True)
                     mark_as_alerted(symbol, decision, alert_history)
                     new_alerts.append(f"{symbol} - {decision}")
                     print(f"[BSH] Alert sent: {symbol} - {decision}")
