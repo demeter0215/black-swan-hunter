@@ -43,8 +43,12 @@ class SwanLiveManager:
                 f.write(str(time.time()))
                 f.flush()
                 os.fsync(f.fileno())
+            
+            # 3. 闭环同步：引擎直接完成物理覆盖，不依赖外部消费者
+            import shutil
+            shutil.copy2(shadow_path, self.file_path)
                 
-            print(f"Handshake: Data ready in {shadow_path}, flag raised.")
+            print(f"Handshake: Data ready in {shadow_path}, and physically synced to {self.file_path}")
         except Exception as e:
             print(f"Handshake Error: {e}")
 
